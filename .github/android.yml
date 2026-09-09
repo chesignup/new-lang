@@ -1,0 +1,51 @@
+name: Build release APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+      - name: Decode release keystore
+        run: |
+          mkdir -p keystore
+          base64 -d keystore/newlang-release.jks.b64 > keystore/newlang-release.jks
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
+      - name: Build signed release
+        run: gradle assembleRelease
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: newlang-release
+          path: app/build/outputs/apk/release/app-release.apk
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          name: ניו לאנג 1.0.0
+          body: |
+            אפליקציית **ניו לאנג** — מורה צרפתית בעברית.
+
+            - מזהה קבוע: `com.newlang.french` (עדכונים בלי הסרה)
+            - APK חתום עם `keystore/newlang-release.jks`
+            - הורידו את `app-release.apk` והתקינו (מקור לא מוכר)
+
+            בהגדרות: הדביקו מפתח OpenAI (נשמר מוצפן) ובחרו מודל. ברירת מחדל: `gpt-4o-mini`.
+          files: app/build/outputs/apk/release/app-release.apk
+          fail_on_unmatched_files: true
