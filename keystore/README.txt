@@ -1,4 +1,0 @@
-storePassword=NewLangRelease2026
-keyPassword=NewLangRelease2026
-keyAlias=newlang
-storeFile=keystore/newlang-release.jks
