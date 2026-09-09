@@ -1,26 +1,36 @@
 # ניו לאנג · New Lang
 
-מורה צרפתית אינטראקטיבית בעברית לאנדרואיד.
+מורה צרפתית אינטראקטיבית בעברית לאנדרואיד. לא שינון — שיחה, תיקון אמיתי, סלנג של בית קפה, ושיגרה של 15 דקות.
 
-**מזהה קבוע:** `com.newlang.french`
+**מזהה קבוע:** `com.newlang.french` — עדכונים מותקנים מעל האפליקציה הקיימת, בלי הסרה.
 
-## איפה ה-APK?
+## הורדת ה-APK
 
-הקובץ החתום **לא נמצא בתוך עץ המקור בגיטהאב** (קובץ בינארי של 12MB). כדי להתקין:
+**[ניו לאנג 1.0.0 — newlang-1.0.0.apk](https://github.com/chesignup/new-lang/releases/tag/v1.0.0)**
 
-1. **בנו אותו כאן:**
-   ```bash
-   echo "sdk.dir=$ANDROID_HOME" > local.properties
-   ./gradlew assembleRelease
-   ```
-   הפלט: `app/build/outputs/apk/release/app-release.apk`
+Install: download the APK, allow unknown sources. Same app ID + keystore = update in place.
 
-2. **או העלו Release בגיטהאב:** Releases → Draft a new release → תג `v1.0.0` → העלו את ה-APK.
+## בנייה מקומית
 
-3. ה-keystore לחתימה נמצא ב-`keystore/newlang-release.jks.b64` (פענוח: `base64 -d keystore/newlang-release.jks.b64 > keystore/newlang-release.jks`).
+```bash
+base64 -d keystore/newlang-release.jks.b64 > keystore/newlang-release.jks
+echo "sdk.dir=$ANDROID_HOME" > local.properties
+./gradlew assembleRelease
+```
 
 ## שיעורים
-שיחה של 2 דקות, תרגום+3 חידונים, בית קפה בפריז, תיקון כתיבה, 10 משפטים מודרניים, שיגרת 15 דקות. XP, רצף, התראות עם שעות שקטות.
+
+1. שיחה של 2 דקות על היומיום
+2. תרגום + 3 חידונים + תיקון טעויות
+3. בית קפה בפריז (סלנג)
+4. תיקון כתיבה כמו מורה
+5. 10 משפטים מודרניים
+6. שיגרת 15 דקות
 
 ## OpenAI
-בהגדרות — מפתח מוצפן במכשיר. ברירת מחדל `gpt-4o-mini`. בלי מפתח יש מצב דמו.
+
+בהגדרות: מפתח נשמר מוצפן. מודל ברירת מחדל `gpt-4o-mini`. בלי מפתח — מצב דמו.
+
+## התראות
+
+1–3 ביום, חלונות זמן, שעות שקטות 22:00–08:00 כברירת מחדל.
