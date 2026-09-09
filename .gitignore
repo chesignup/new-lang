@@ -1,0 +1,19 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures/
+/app/build/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+.cxx/
+*.log
+.kotlin/
+keystore.properties
+# Keep the release keystore committed so app updates stay installable
+# without uninstalling. Do not reuse this key for a public store listing.
