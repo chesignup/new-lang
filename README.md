@@ -6,7 +6,7 @@
 APK: [Releases](https://github.com/chesignup/new-lang/releases) — גם `dist/newlang-1.0.0.apk` בריפו.
 
 **מזהה האפליקציה (קבוע):** `com.newlang.french`  
-עדכונים מתקינים מעל הגרסה הקיימת. אין צורך להסיר ולהתקין מחדש, כל עוד שחותמים עם אותו מפתח (`keystore/newlang-release.jks`).
+עדכונים מתקינים מעל הגרסה הקיימת. אין צורך להסיר ולהתקין מחדש, כל עוד חותמים עם אותו מפתח (`keystore/newlang-release.jks`).
 
 ## מה יש בפנים
 
@@ -21,7 +21,7 @@ APK: [Releases](https://github.com/chesignup/new-lang/releases) — גם `dist/n
 
 ## OpenAI
 
-בהגדרות מדביקים מפתח OpenAI. הוא נשמר **מוצפן** ב׷Android Keystore / EncryptedSharedPreferences, לא בקוד ולא בלוגים.
+בהגדרות מדביקים מפתח OpenAI. הוא נשמר **מוצפן** ב־Android Keystore / EncryptedSharedPreferences, לא בקוד ולא בלוגים.
 
 מודל ברירת מחדל: **`gpt-4o-mini`** — מהיר לשיחה, מספיק חכם לתיקון. אפשר לבחור גם `gpt-4o`, `gpt-4.1-mini`, `gpt-4.1`, `o4-mini`.
 
